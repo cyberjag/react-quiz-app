@@ -1,6 +1,6 @@
 import shuffleArray from "./utils";
 
-export type Question = {
+export interface Question {
     category: string;
     correct_answer: string;
     difficulty: string;
@@ -9,11 +9,13 @@ export type Question = {
     type: string
 }
 
-export type QuestionState = Question & {
-    answers: string[]
+interface QuestionAnswers {
+    answers: string[];
 }
 
-export type AnswerObject = {
+export type QuestionState = Question & QuestionAnswers;
+
+export interface AnswerObject {
     question: string;
     answer: string;
     correct: boolean;
